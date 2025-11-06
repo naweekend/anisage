@@ -1,6 +1,7 @@
 <script>
     import animes from "$lib/animes/animes";
     import AnimeCard from "$lib/components/AnimeCard.svelte";
+    import SearchBar from "$lib/components/SearchBar.svelte";
     import ShinyButton from "$lib/components/ShinyButton.svelte";
     import { onMount } from "svelte";
 
@@ -57,10 +58,7 @@
             Get Anime Recommendations based upon your Favourites
         </h1>
 
-        <form action="/anime" method="GET" class="flex flex-wrap justify-center items-center gap-1">
-            <input name="q" id="search" type="text" {placeholder} class="text-xl glass py-3 px-5 max-sm:w-full" />
-            <ShinyButton>Search Anime</ShinyButton>
-        </form>
+        <SearchBar />
     </div>
 
     <div class="flex flex-col gap-8 mt-15">
@@ -86,10 +84,3 @@
         </section>
     </div>
 </main>
-
-
-<style>
-    input#search {
-        border-radius: 1000px;
-    }
-</style>
