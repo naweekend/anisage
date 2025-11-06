@@ -8,6 +8,7 @@
     let timeout;
     let controller;
     let wrapper;
+    let form;
 
     async function fetchSuggestions(q) {
         if (!q.trim()) {
@@ -43,6 +44,7 @@
     function choose(title) {
         query = title;
         suggestions = [];
+        form.submit();
     }
 
     function handleKey(e) {
@@ -66,6 +68,7 @@
 </script>
 
 <form
+    bind:this={form}
     action="/anime"
     autocomplete="off"
     method="GET"
@@ -76,6 +79,7 @@
             autocomplete="off"
             name="q"
             id="search"
+            required
             type="text"
             bind:value={query}
             oninput={handleInput}
@@ -85,7 +89,7 @@
 
         {#if query.trim()}
             <ul
-                class="absolute w-full glass-s border rounded mt-1 max-h-60 overflow-y-auto z-50 divide-y divide-white/10"
+                class="absolute w-full bg-black text-white border rounded mt-1 max-h-60 overflow-y-auto z-50 divide-y divide-white/10"
             >
                 <!-- Spinner while loading -->
                 {#if loading}
