@@ -9,15 +9,18 @@
     let controller;
     let wrapper;
     let form;
+    let open = false; // 👈 NEW
 
     async function fetchSuggestions(q) {
         if (!q.trim()) {
             suggestions = [];
             loading = false;
+            open = false; // 👈 hide
             return;
         }
 
         loading = true;
+        open = true; // 👈 show dropdown
 
         if (controller) controller.abort();
         controller = new AbortController();
@@ -44,16 +47,19 @@
     function choose(title) {
         query = title;
         suggestions = [];
+        open = false; // 👈 hide dropdown
         form.submit();
     }
 
     function handleKey(e) {
-        if (e.key === "Escape") suggestions = [];
+        if (e.key === "Escape") {
+            open = false; // 👈 hide dropdown
+        }
     }
 
     function handleClickOutside(e) {
         if (!wrapper.contains(e.target)) {
-            suggestions = [];
+            open = false; // 👈 hide dropdown
         }
     }
 
@@ -87,7 +93,7 @@
             class="text-xl glass py-3 px-5 w-full rounded-full"
         />
 
-        {#if query.trim()}
+        {#if open}
             <ul
                 class="absolute w-full bg-black text-white border rounded mt-1 max-h-60 overflow-y-auto z-50 divide-y divide-white/10"
             >
