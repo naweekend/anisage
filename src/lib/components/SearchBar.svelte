@@ -38,7 +38,7 @@
         clearTimeout(timeout);
         timeout = setTimeout(() => {
             fetchSuggestions(query);
-        }, 300);
+        }, 10);
     }
 
     function choose(title) {
