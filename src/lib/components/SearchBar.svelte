@@ -105,7 +105,7 @@
                     {#each suggestions as anime}
                         <li>
                             <button
-                                class="flex items-center justify-between p-2 cursor-pointer"
+                                class="flex w-full items-center justify-between p-2 cursor-pointer"
                                 onclick={() => choose(anime.title)}
                             >
                                 <div class="flex items-center gap-3">
