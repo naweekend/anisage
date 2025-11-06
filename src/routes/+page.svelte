@@ -16,14 +16,16 @@
 
     <section
         id="animes"
-        class="mt-15 flex flex-wrap justify-center items-center gap-5"
+        class="mt-15 flex flex-wrap justify-center items-center gap-3"
     >
         {#each animes as anime}
-            <AnimeCard
-                name={anime.name}
-                image={anime.image}
-                recommendations={anime.recommendations}
-            />
+            <a href={`/${anime.id}`}>
+                <AnimeCard
+                    name={anime.name}
+                    image={anime.image}
+                    recommendationsCount={anime.recommendationsCount}
+                />
+            </a>
         {/each}
     </section>
 </main>
