@@ -38,7 +38,7 @@
         clearTimeout(timeout);
         timeout = setTimeout(() => {
             fetchSuggestions(query);
-        }, 10);
+        }, 250);
     }
 
     function choose(title) {
@@ -93,11 +93,19 @@
             >
                 <!-- Spinner while loading -->
                 {#if loading}
-                    <li class="p-3 text-center opacity-80">
-                        <span
-                            class="animate-spin inline-block w-5 h-5 border-2 border-current border-t-transparent rounded-full"
-                        ></span>
-                    </li>
+                    {#each Array(6) as _}
+                        <li class="p-2 flex items-center gap-3 animate-pulse">
+                            <div class="w-10 h-14 bg-white/20 rounded"></div>
+                            <div class="flex-1 space-y-2">
+                                <div
+                                    class="h-4 w-3/4 bg-white/10 rounded"
+                                ></div>
+                                <div
+                                    class="h-4 w-1/2 bg-white/10 rounded"
+                                ></div>
+                            </div>
+                        </li>
+                    {/each}
                 {/if}
 
                 <!-- Actual results -->
