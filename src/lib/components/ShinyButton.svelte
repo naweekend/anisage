@@ -2,7 +2,8 @@
     let { children } = $props();
 </script>
 
-<button
+<a
+    href="#animes"
     class="py-4 px-6 rounded-full backdrop-blur-lg border border-red-500/20 bg-linear-to-tr from-pink-500/60 to-pink-500/40 shadow-lg hover:shadow-2xl shadow-red-500/30 active:scale-95 active:rotate-0 transition-all duration-300 ease-out cursor-pointer hover:border-pink-700/50 hover:bg-linear-to-tr hover:from-pink-500/30 hover:to-pink-500/40 group relative overflow-hidden text-lg"
 >
     <div
@@ -13,4 +14,4 @@
             {@render children?.()}
         </p>
     </div>
-</button>
+</a>

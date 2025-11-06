@@ -9,9 +9,7 @@
         <h1 class="instrument-serif text-5xl font-bold leading-normal">
             Get Anime Recommendations based upon your Favourites
         </h1>
-        <a href="#animes">
-            <ShinyButton>View Animes</ShinyButton>
-        </a>
+        <ShinyButton>View Animes</ShinyButton>
     </div>
 
     <section
