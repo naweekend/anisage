@@ -10,3 +10,5 @@ export const entries = () => {
     { id: "8" },
   ];
 };
+
+export const prerender = true;
