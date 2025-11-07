@@ -1,6 +1,6 @@
 <script>
     import ShinyButton from "$lib/components/ShinyButton.svelte";
-    import { onMount } from "svelte";
+    import { onMount, tick } from "svelte";
 
     let query = "";
     let suggestions = [];
@@ -44,11 +44,13 @@
         }, 250);
     }
 
-    function choose(title) {
+    async function choose(title) {
         query = title;
         suggestions = [];
         open = false; // 👈 hide dropdown
-        form.submit();
+
+        await tick(); // ✅ wait for DOM + bind:value update
+        form.submit(); // ✅ modern & correct submit
     }
 
     function handleKey(e) {
@@ -119,6 +121,7 @@
                     {#each suggestions as anime}
                         <li>
                             <button
+                                type="button"
                                 class="flex w-full items-center justify-between p-2 cursor-pointer"
                                 onclick={() => choose(anime.title)}
                             >
